@@ -48,12 +48,12 @@ app.get('/ping', function(req, res) {
   res.send('ping back to ya');
 });
 
-app.post('/wrestle', function (req, res) {
-    var data = req.body;
+app.get('/wrestle', function (req, res) {
 
-    var xProduct = data.xProduct;
-    var yProduct = data.yProduct;
 
+    var xProduct = 10;
+    var yProduct = 10;
+    console.log("we in");
     return wrestle.runMatch(xProduct, yProduct).then(function(winner) {
         res.send(winner);
     });

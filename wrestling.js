@@ -5,19 +5,18 @@ var _ = require('lodash');
 
 
 function getScore(product) {
-    return _.reduce(product.factors, function (sum, x) {
-        return sum + x * (Math.random() * 10);
-    });
+    return product + Math.random() * 10;
 }
 
 module.exports = {
     runMatch: function(xProduct, yProduct) {
-
+        console.log("running match");
         return new Promise(function(resolve) {
+            console.log(xProduct, yProduct);
             var xKarma = getScore(xProduct);
             var yKarma = getScore(yProduct);
-
-            resolve(xKarma > yKarma ? xProduct : yProduct);
+        
+            resolve(xKarma > yKarma ? "vs code" : "webstorm");
         });
     }
 };
